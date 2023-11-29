@@ -10,6 +10,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.javaprinciples.interrupt.InterruptThread
+import com.example.javaprinciples.join.JoinTestSync
 import com.example.javaprinciples.objectclasslock.ObjectClassLock
 import com.example.javaprinciples.objectclasslock.ObjectClassLock2
 import com.example.javaprinciples.ui.theme.JavaPrinciplesTheme
@@ -33,9 +35,20 @@ class MainActivity : ComponentActivity() {
             }
         }
 
+        //多窗口售票
 //        TicketsDemo.test()
+
+        //类锁对象锁
 //        ObjectClassLock.test()
-        ObjectClassLock2.test()
+//        ObjectClassLock2.test()
+
+        //中断线程
+//        InterruptThread().apply {
+//            start()
+//        }.toInterrupt()
+
+        //join
+        JoinTestSync.test()
     }
 }
 
