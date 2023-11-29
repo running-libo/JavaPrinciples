@@ -11,6 +11,7 @@ import com.example.javaprinciples.deadlock.DeadLock
 import com.example.javaprinciples.retrantlock.ReentrantLockUse
 import com.example.javaprinciples.retrantlock.Singleton
 import com.example.javaprinciples.semaphore.SemaphoreUtil
+import com.example.javaprinciples.threadlocal.ThreadLocalUse
 import com.example.javaprinciples.ui.theme.JavaPrinciplesTheme
 import com.example.javaprinciples.volatileuse.NotSafe
 import com.example.javaprinciples.volatileuse.VolatileCase
@@ -69,6 +70,9 @@ class MainActivity : ComponentActivity() {
 //        NotSafe.test()
 
         //atomic
-        AtomicUtil.test()
+//        AtomicUtil.test()
+
+        //threadlocal
+//        ThreadLocalUse.test()
     }
 }
