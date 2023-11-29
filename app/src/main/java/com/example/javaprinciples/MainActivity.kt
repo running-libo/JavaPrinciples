@@ -6,11 +6,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.javaprinciples.atomic.AtomicUtil
 import com.example.javaprinciples.deadlock.DeadLock
 import com.example.javaprinciples.retrantlock.ReentrantLockUse
 import com.example.javaprinciples.retrantlock.Singleton
 import com.example.javaprinciples.semaphore.SemaphoreUtil
 import com.example.javaprinciples.ui.theme.JavaPrinciplesTheme
+import com.example.javaprinciples.volatileuse.NotSafe
+import com.example.javaprinciples.volatileuse.VolatileCase
 import com.example.javaprinciples.waitnotify.StrangePrinter
 import java.util.concurrent.Executors
 
@@ -60,5 +63,12 @@ class MainActivity : ComponentActivity() {
 //        ReentrantLockUse("thread1").start()
 //        ReentrantLockUse("thread2").start()
 //        ReentrantLockUse("thread3").start()
+
+        //volatile
+//         VolatileCase.test()
+//        NotSafe.test()
+
+        //atomic
+        AtomicUtil.test()
     }
 }
