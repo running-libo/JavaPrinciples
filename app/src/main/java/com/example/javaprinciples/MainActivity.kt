@@ -2,19 +2,15 @@ package com.example.javaprinciples
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.javaprinciples.interrupt.InterruptThread
-import com.example.javaprinciples.join.JoinTestSync
-import com.example.javaprinciples.objectclasslock.ObjectClassLock
-import com.example.javaprinciples.objectclasslock.ObjectClassLock2
+import com.example.javaprinciples.deadlock.DeadLock
 import com.example.javaprinciples.ui.theme.JavaPrinciplesTheme
+import com.example.javaprinciples.waitnotify.StrangePrinter
+import java.util.concurrent.Executors
+
 
 class MainActivity : ComponentActivity() {
     companion object {
@@ -23,17 +19,6 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            JavaPrinciplesTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
-            }
-        }
 
         //多窗口售票
 //        TicketsDemo.test()
@@ -48,22 +33,20 @@ class MainActivity : ComponentActivity() {
 //        }.toInterrupt()
 
         //join
-        JoinTestSync.test()
-    }
-}
+//        JoinTestSync.test()
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+        //生产者、消费者模式
+//        Producter().start()
+//        Consumer().start()
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    JavaPrinciplesTheme {
-        Greeting("Android")
+        //交替打印数字
+//        val strangePrinter = StrangePrinter(20)
+//        val executorService = Executors.newFixedThreadPool(2)
+//        executorService.submit(strangePrinter.MyPrinter("Printer1", 0))
+//        executorService.submit(strangePrinter.MyPrinter("Printer2", 1))
+//        executorService.shutdown()
+
+        //必然死锁
+//        DeadLock().deadLock()
     }
 }
