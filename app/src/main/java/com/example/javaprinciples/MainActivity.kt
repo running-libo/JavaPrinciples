@@ -10,9 +10,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.javaprinciples.objectclasslock.ObjectClassLock
+import com.example.javaprinciples.objectclasslock.ObjectClassLock2
 import com.example.javaprinciples.ui.theme.JavaPrinciplesTheme
 
 class MainActivity : ComponentActivity() {
+    companion object {
+        const val TAG = "minfo"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -26,6 +32,10 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+
+//        TicketsDemo.test()
+//        ObjectClassLock.test()
+        ObjectClassLock2.test()
     }
 }
 
