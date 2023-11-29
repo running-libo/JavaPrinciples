@@ -7,6 +7,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.javaprinciples.deadlock.DeadLock
+import com.example.javaprinciples.retrantlock.ReentrantLockUse
+import com.example.javaprinciples.retrantlock.Singleton
+import com.example.javaprinciples.semaphore.SemaphoreUtil
 import com.example.javaprinciples.ui.theme.JavaPrinciplesTheme
 import com.example.javaprinciples.waitnotify.StrangePrinter
 import java.util.concurrent.Executors
@@ -48,5 +51,14 @@ class MainActivity : ComponentActivity() {
 
         //必然死锁
 //        DeadLock().deadLock()
+
+        //信号量
+//        SemaphoreUtil().test()
+
+        //Reetrantlock
+//        Singleton.relock()
+//        ReentrantLockUse("thread1").start()
+//        ReentrantLockUse("thread2").start()
+//        ReentrantLockUse("thread3").start()
     }
 }
