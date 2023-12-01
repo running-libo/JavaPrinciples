@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.javaprinciples.atomic.AtomicUtil
 import com.example.javaprinciples.deadlock.DeadLock
+import com.example.javaprinciples.deadlock.ReleaseDeadLock
 import com.example.javaprinciples.retrantlock.ReentrantLockUse
 import com.example.javaprinciples.retrantlock.Singleton
 import com.example.javaprinciples.semaphore.SemaphoreUtil
@@ -74,5 +75,9 @@ class MainActivity : ComponentActivity() {
 
         //threadlocal
 //        ThreadLocalUse.test()
+
+        //死锁
+//        DeadLock().deadLock()
+//        ReleaseDeadLock.test()
     }
 }
