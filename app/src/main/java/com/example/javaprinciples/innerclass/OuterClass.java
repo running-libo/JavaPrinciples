@@ -1,5 +1,6 @@
 package com.example.javaprinciples.innerclass;
 
+
 /**
  * 内部类 demo代码
  */
