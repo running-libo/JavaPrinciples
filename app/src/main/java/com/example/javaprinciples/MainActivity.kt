@@ -13,6 +13,8 @@ import com.example.javaprinciples.retrantlock.ReentrantLockUse
 import com.example.javaprinciples.retrantlock.Singleton
 import com.example.javaprinciples.semaphore.SemaphoreUtil
 import com.example.javaprinciples.threadlocal.ThreadLocalUse
+import com.example.javaprinciples.threadpool.ThreadPoolCreate
+import com.example.javaprinciples.threadpool.ThreadPoolExecutor
 import com.example.javaprinciples.ui.theme.JavaPrinciplesTheme
 import com.example.javaprinciples.volatileuse.NotSafe
 import com.example.javaprinciples.volatileuse.VolatileCase
@@ -79,5 +81,9 @@ class MainActivity : ComponentActivity() {
         //死锁
 //        DeadLock().deadLock()
 //        ReleaseDeadLock.test()
+
+        //线程池操作
+//        ThreadPoolCreate().createThreadPool()
+//        ThreadPoolExecutor.createThreadPool()
     }
 }
