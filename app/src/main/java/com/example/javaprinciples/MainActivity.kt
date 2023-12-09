@@ -1,5 +1,6 @@
 package com.example.javaprinciples
 
+import android.graphics.Bitmap
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.compose.material3.Text
@@ -9,6 +10,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.javaprinciples.atomic.AtomicUtil
 import com.example.javaprinciples.deadlock.DeadLock
 import com.example.javaprinciples.deadlock.ReleaseDeadLock
+import com.example.javaprinciples.lrucache.LinkedHashMapUse
+import com.example.javaprinciples.lrucache.MemoryCacheManager
 import com.example.javaprinciples.retrantlock.ReentrantLockUse
 import com.example.javaprinciples.retrantlock.Singleton
 import com.example.javaprinciples.semaphore.SemaphoreUtil
@@ -90,5 +93,8 @@ class MainActivity : ComponentActivity() {
 //        ThreadPoolType.singleThreadPool()
 //        ThreadPoolType.fixedThreadPool()
 //        ThreadPoolType.scheduledThreadPool()
+
+//        LinkedHashMapUse.accessLinkedHashMap()
+//        MemoryCacheManager().setBitmapToMemory("bitmap", Bitmap.createBitmap(20, 20, Bitmap.Config.ARGB_8888))
     }
 }
