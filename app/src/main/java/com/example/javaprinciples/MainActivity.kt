@@ -8,6 +8,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.javaprinciples.atomic.AtomicUtil
+import com.example.javaprinciples.classloader.ClassLoader
+import com.example.javaprinciples.classloader.MyClassLoader
 import com.example.javaprinciples.deadlock.DeadLock
 import com.example.javaprinciples.deadlock.ReleaseDeadLock
 import com.example.javaprinciples.lrucache.LinkedHashMapUse
@@ -96,5 +98,11 @@ class MainActivity : ComponentActivity() {
 
 //        LinkedHashMapUse.accessLinkedHashMap()
 //        MemoryCacheManager().setBitmapToMemory("bitmap", Bitmap.createBitmap(20, 20, Bitmap.Config.ARGB_8888))
+
+        //类加载器
+//        ClassLoader.getClassLoader(this)
+        //自定义类加载器加载类
+//        val testClass = MyClassLoader("/User/desktop/Test.class").loadClass("Test")
+//        testClass.getMethod("showClassLoader").invoke(null)
     }
 }
