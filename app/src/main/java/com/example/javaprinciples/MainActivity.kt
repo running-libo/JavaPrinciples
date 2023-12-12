@@ -110,6 +110,6 @@ class MainActivity : ComponentActivity() {
 //        testClass.getMethod("showClassLoader").invoke(null)
 
         //自定义handler
-        HandlerTest.handleMessage()
+//        HandlerTest.handleMessage()
     }
 }

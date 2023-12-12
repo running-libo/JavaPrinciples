@@ -40,11 +40,34 @@ public class MessageQueue {
             return true;
         }
 
-        //顺序插入
-        tail.next = node;
-        node.pre = tail;
-        tail = tail.next;
-        return true;
+        Node p = head;
+        while (p != null) {
+            if (p.message.when > node.message.when) {
+                break;
+            }
+            p = p.next;
+        }
+        if (p == head) {
+            //头部
+            p.pre = node;
+            node.next = p;
+            head = node;
+            return true;
+        } else if (p == null) {
+            //尾部
+            tail.next = node;
+            node.pre = tail;
+            tail = node;
+            return true;
+        } else {
+            //中间
+            Node pre = p.pre;
+            pre.next = node;
+            node.next = p;
+            node.pre = pre;
+            p.pre = node;
+            return true;
+        }
     }
 
     /**

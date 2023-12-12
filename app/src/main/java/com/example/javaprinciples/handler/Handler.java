@@ -10,7 +10,7 @@ public class Handler {
     public void sendMessage(Message message) {
         message.when = System.currentTimeMillis();
         message.target = this;
-        mLooper.getMessageQueue().enqueueMessage(message);
+        mLooper.getmQueue().enqueueMessage(message);
     }
 
     public void post(Runnable runnable) {
@@ -21,7 +21,15 @@ public class Handler {
         sendMessage(message);
     }
 
-    protected void handleMessage(Message message) {
+    public void dispatchMessage(Message msg) {
+        if (msg.callback != null) { //postMessage类型
+            msg.callback.run();
+        } else {
+            msg.target.handleMessage(msg);  //sendMessage类型
+        }
+    }
+
+    public void handleMessage(Message msg) {
 
     }
 

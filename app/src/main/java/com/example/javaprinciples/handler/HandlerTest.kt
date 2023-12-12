@@ -34,6 +34,8 @@ object HandlerTest {
             handler.post(Runnable {
                 println("执行了handler post任务")
             })
+
+            Looper.getMainLooper().setNativeEpoll()  //停止循环获取消息
         }.start()
 
         Looper.loop()

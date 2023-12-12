@@ -3,18 +3,17 @@ package com.example.javaprinciples.handler;
 public class Looper {
 
     public static ThreadLocal<Looper> threadLocal;
-    private MessageQueue messageQueue = new MessageQueue();
-    private volatile boolean quit = false;
+    private MessageQueue mQueue;
+    private volatile boolean nativeEpoll = false;
 
     private static Looper mMainLooper;
-    private Message mMessage;
 
     static {
         threadLocal = new ThreadLocal<>();
     }
 
     private Looper() {
-
+        mQueue = new MessageQueue();
     }
 
     public static Looper getLooper() {
@@ -25,13 +24,13 @@ public class Looper {
         return mMainLooper;
     }
 
-    public MessageQueue getMessageQueue() {
-        return messageQueue;
+    public MessageQueue getmQueue() {
+        return mQueue;
     }
 
     public static void prepare() {
         if (threadLocal.get() != null) {
-            throw new Error("current thread already has prepared!");
+            throw new RuntimeException("Only one Looper may be created per thread");
         }
 
         threadLocal.set(new Looper());
@@ -43,23 +42,35 @@ public class Looper {
     }
 
     public static void loop() {
-        Looper looper = threadLocal.get();
-        if (looper == null) {
-            throw new Error("please prepare first!");
+        final Looper me = threadLocal.get();
+        if (me == null) {
+            throw new Error("No Looper; Looper.prepare() wasn't called on this thread.");
         }
+
+        MessageQueue queue = me.mQueue;
 
         for(;;) {
             //取出消息进行分发
-            Message message = looper.messageQueue.next();
+            Message message = queue.next();
             if (message != null) {
-                message.target.handleMessage(message);
+                try {
+                    message.target.dispatchMessage(message);
+                    //处理完消息，放入缓存池中
+                    Message.addCache(message);
+                } catch (Exception exception) {
 
-                //处理完消息，放入缓存池中
-                Message.addCache(message);
-            } else {
+                }
+            }
 
+            //退出循环取消息
+            if (me.nativeEpoll) {
+                return;
             }
         }
+    }
+
+    public void setNativeEpoll() {
+        nativeEpoll = true;
     }
 
 }
