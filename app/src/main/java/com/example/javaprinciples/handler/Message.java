@@ -4,13 +4,19 @@ import java.util.LinkedList;
 
 public final class Message {
 
-    //Message类处理静态 message 消息池缓存
+    /**
+     * Message类处理静态 message 消息池缓存
+     */
     private static LinkedList<Message> cache;
+    /**
+     * 缓存池大小
+     */
     private static final int CACHE_SIZE = 30;
+    public Runnable callback;
 
     static {
         cache = new LinkedList<>();
-        for (int i=0;i<CACHE_SIZE;i++) {
+        for (int i = 0; i < CACHE_SIZE; i++) {
             cache.addLast(new Message());
         }
     }
@@ -23,6 +29,7 @@ public final class Message {
 
     /**
      * 获取缓存池消息，不为空从缓存池中取，否则新创建Message
+     *
      * @return
      */
     public static Message obtain() {

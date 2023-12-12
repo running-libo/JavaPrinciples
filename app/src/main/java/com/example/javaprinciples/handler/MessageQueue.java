@@ -94,4 +94,10 @@ public class MessageQueue {
             return node.message;
         }
     }
+
+    public int getSize() {
+        synchronized (this) {
+            return size;
+        }
+    }
 }
