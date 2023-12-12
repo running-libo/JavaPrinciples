@@ -2,7 +2,6 @@ package com.example.javaprinciples
 
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.os.Handler
 import androidx.activity.ComponentActivity
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -13,6 +12,10 @@ import com.example.javaprinciples.classloader.ClassLoader
 import com.example.javaprinciples.classloader.MyClassLoader
 import com.example.javaprinciples.deadlock.DeadLock
 import com.example.javaprinciples.deadlock.ReleaseDeadLock
+import com.example.javaprinciples.handler.Handler
+import com.example.javaprinciples.handler.HandlerTest
+import com.example.javaprinciples.handler.Looper
+import com.example.javaprinciples.handler.Message
 import com.example.javaprinciples.lrucache.LinkedHashMapUse
 import com.example.javaprinciples.lrucache.MemoryCacheManager
 import com.example.javaprinciples.retrantlock.ReentrantLockUse
@@ -105,5 +108,8 @@ class MainActivity : ComponentActivity() {
         //自定义类加载器加载类
 //        val testClass = MyClassLoader("/User/desktop/Test.class").loadClass("Test")
 //        testClass.getMethod("showClassLoader").invoke(null)
+
+        //自定义handler
+        HandlerTest.handleMessage()
     }
 }

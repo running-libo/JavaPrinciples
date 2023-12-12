@@ -16,7 +16,7 @@ public final class Message {
     }
 
     public String what;
-    private long when;
+    public long when;
     public Object arg1;
     public Object arg2;
     public Handler target;
