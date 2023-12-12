@@ -2,6 +2,7 @@ package com.example.javaprinciples
 
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.os.Handler
 import androidx.activity.ComponentActivity
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
